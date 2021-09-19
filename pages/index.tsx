@@ -32,7 +32,8 @@ const Home: NextPage = () => {
   };
 
   return (
-    <div className={`${styles.container} bg-green-400`}>
+    <div
+      className={`${styles.container} font-sans bg-gradient-to-br from-green-400 via-green-500 to-purple-600`}>
       <Head>
         <title>Shorty URLs</title>
         <meta name="description" content="Short url generator" />
