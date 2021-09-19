@@ -1,13 +1,15 @@
 import Image from 'next/image';
+import { ReactNode } from 'react';
 
 type ButtonProps = {
   className: string;
   text?: string;
-  imgSrc?: string;
+  imgSrc?: any;
   click: () => void;
+  children?: ReactNode;
 };
 
-const Button = ({ text, className, imgSrc, click }: ButtonProps) => {
+const Button = ({ text, className, imgSrc, click, children }: ButtonProps) => {
   return (
     <button
       style={{ minWidth: '55px' }}
@@ -15,6 +17,7 @@ const Button = ({ text, className, imgSrc, click }: ButtonProps) => {
       onClick={click}>
       {text}
       {imgSrc ? <Image src={imgSrc} height={25} width={25} alt="copy to clipboard" /> : null}
+      {children}
     </button>
   );
 };

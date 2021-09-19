@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Button from './Button';
-import copyImg from '../../public/content_copy.svg';
-import { useEffect, useState } from 'react';
+import CopySvg from './CopySvg';
 
 type UrlProps = {
   labelText: string;
@@ -37,10 +36,10 @@ const Url = ({ labelText, url, imgSrc, imgAlt, copyable, copied, setCopied }: Ur
         />
         {copyable ? (
           <Button
-            imgSrc={copyImg}
-            className={`rounded-r-xl icon-button ${copied ? 'bg-green-500' : 'bg-gray-400'}`}
-            click={() => copyToClip(url)}
-          />
+            className={`rounded-r-xl icon-button hover:bg-gray-100 bg-transparent border border-l-0 border-gray-200`}
+            click={() => copyToClip(url)}>
+            <CopySvg fill={`${copied ? '#10B981' : '#6B7280'}`}></CopySvg>
+          </Button>
         ) : null}
       </div>
     </div>

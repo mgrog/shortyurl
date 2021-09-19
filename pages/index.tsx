@@ -51,7 +51,7 @@ const Home: NextPage = () => {
 
         <div className="flex w-full my-6">
           <InputBar setUrl={setLongUrl} submitForm={getURL} />
-          <Button className="bg-blue-700 rounded-r-3xl" text={'Get Shorty!'} click={getURL} />
+          <Button className="bg-blue-700 rounded-r-3xl -ml-1" text={'Get Shorty!'} click={getURL} />
         </div>
         {loading ? <LoadSpinner /> : null}
         <Box trigger={urlReady}>
