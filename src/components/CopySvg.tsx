@@ -4,7 +4,7 @@ type SvgProps = {
   fill: string;
 };
 
-function SvgComponent(props: SvgProps) {
+function CopySvg(props: SvgProps) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" height={24} width={24} {...props}>
       <path d="M0 0h24v24H0V0z" fill="none" />
@@ -13,4 +13,4 @@ function SvgComponent(props: SvgProps) {
   );
 }
 
-export default SvgComponent;
+export default CopySvg;
