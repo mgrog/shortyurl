@@ -31,7 +31,7 @@ const Url = ({ labelText, url, imgSrc, imgAlt, copyable, copied, setCopied }: Ur
           name="url"
           readOnly
           className="p-4 rounded-l-xl border flex-grow"
-          style={{ overflowX: 'clip' }}
+          style={{ overflowX: 'hidden' }}
           value={url}
         />
         {copyable ? (
