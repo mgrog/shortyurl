@@ -7,7 +7,7 @@ const Redirect: NextPage = () => {
   const router = useRouter();
   const { pid } = router.query;
 
-  const [redirectUrl, setRedirectUrl] = useState('');
+  const [, setRedirectUrl] = useState('');
 
   useEffect(() => {
     async function fetchData() {

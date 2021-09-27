@@ -1,4 +1,4 @@
-import { runTransaction, doc, getDocs, query, collection, limit } from 'firebase/firestore';
+import { runTransaction, doc, increment } from 'firebase/firestore';
 import { db } from '..';
 
 async function requisitionURL(longUrl: string) {
@@ -29,7 +29,7 @@ async function requisitionURL(longUrl: string) {
       const map = { id, shortUrl: `${window.location.origin}/${id}`, longUrl };
       const urlMapDocRef = doc(db, `urlMaps_${collectionId}`, id);
       await transaction.set(urlMapDocRef, map);
-      await transaction.set(counterRef, { count: counterDoc!.count + 1 });
+      await transaction.update(counterRef, { count: increment });
       return map;
     });
     console.log('Transaction successfully committed!');
