@@ -21,7 +21,7 @@ async function requisitionURL(longUrl: string) {
       const collectionId = window.location.hostname.split('.')[0];
       console.log(collectionId);
 
-      const counterRef = doc(db, 'counters', `reseed_index_${collectionId}`);
+      const counterRef = doc(db, 'counters', `index_${collectionId}`);
       const counterDoc = (await transaction.get(counterRef)).data();
 
       const id = encode62(counterDoc!.count);
