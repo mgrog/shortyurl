@@ -11,7 +11,7 @@ async function requisitionURL(longUrl: string) {
     while (num) {
       const [nextNum, rem] = divmod(num, 62);
       num = nextNum;
-      arr.length !== 1 ? arr.push(chars.charAt(rem + 1)) : arr.push(chars.charAt(rem));
+      arr.length > 0 ? arr.push(chars.charAt(rem + 1)) : arr.push(chars.charAt(rem));
     }
     return arr.reverse().join('');
   };
