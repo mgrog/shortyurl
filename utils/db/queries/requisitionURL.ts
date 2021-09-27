@@ -23,13 +23,14 @@ async function requisitionURL(longUrl: string) {
 
       const counterRef = doc(db, 'counters', `index_${collectionId}`);
       const counterDoc = (await transaction.get(counterRef)).data();
+      const newCount = counterDoc!.count + 1;
 
-      const id = encode62(counterDoc!.count);
+      const id = encode62(newCount);
       console.log(id);
       const map = { id, shortUrl: `${window.location.origin}/${id}`, longUrl };
       const urlMapDocRef = doc(db, `urlMaps_${collectionId}`, id);
       await transaction.set(urlMapDocRef, map);
-      await transaction.update(counterRef, { count: increment });
+      await transaction.update(counterRef, { count: increment(1) });
       return map;
     });
     console.log('Transaction successfully committed!');
